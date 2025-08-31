@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiLP - Professional Roblox Animation Services</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c2416 0%, #3d3123 50%, #4a3a2a 100%);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            color: #f4e4c1;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: rgba(61, 49, 35, 0.9);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #d4a574;
+            font-weight: 400;
+        }
+
+        /* Intro section */
+        .intro-section {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: #f4e4c1;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            text-align: center;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .intro-section h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #f4e4c1;
+        }
+
+        .intro-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .intro-detail {
+            background: rgba(244, 228, 193, 0.15);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        /* Portfolio showcase */
+        .portfolio-showcase {
+            background: rgba(93, 47, 15, 0.3);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            text-align: center;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .portfolio-showcase h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #d4a574;
+            margin-bottom: 25px;
+        }
+
+        .main-image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: rgba(93, 47, 15, 0.5);
+            border: 3px dashed #d4a574;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #d4a574;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-image-placeholder:hover {
+            border-color: #f4e4c1;
+            background: rgba(93, 47, 15, 0.7);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .service-card {
+            background: rgba(93, 47, 15, 0.4);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: #d4a574;
+            background: rgba(93, 47, 15, 0.6);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price-range {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 15px 0;
+        }
+
+        .duration {
+            font-size: 1.1rem;
+            color: #d4a574;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .service-image-placeholder {
+            width: 100%;
+            height: 180px;
+            background: rgba(93, 47, 15, 0.6);
+            border: 2px dashed #d4a574;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #d4a574;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image-placeholder:hover {
+            border-color: #f4e4c1;
+            background: rgba(93, 47, 15, 0.8);
+        }
+
+        /* Image container styles */
+        .image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .image-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(139, 69, 19, 0.3);
+        }
+        
+        .image-slide.active {
+            opacity: 1;
+        }
+        
+        .image-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .shuffle-info {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #f4e4c1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10;
+        }
+
+        /* Specialties section */
+        .specialties-section {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .specialties-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .specialty-item {
+            background: rgba(244, 228, 193, 0.15);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            color: #f4e4c1;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .specialty-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: rgba(244, 228, 193, 0.25);
+        }
+
+        .specialty-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b4513;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Rendering section */
+        .rendering-section {
+            background: rgba(93, 47, 15, 0.4);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .rendering-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            margin-bottom: 20px;
+        }
+
+        .rendering-price {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 15px 0;
+        }
+
+        /* Portfolio links */
+        .portfolio-section {
+            background: rgba(93, 47, 15, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            margin: 50px 0;
+        }
+
+        .portfolio-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .portfolio-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-link-item {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            padding: 25px;
+            border-radius: 15px;
+            color: #f4e4c1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .portfolio-link-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.4);
+            text-decoration: none;
+            color: #f4e4c1;
+            background: linear-gradient(135deg, #a0522d, #8b4513);
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(244, 228, 193, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Games showcase */
+        .games-section {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .games-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .game-item {
+            background: rgba(244, 228, 193, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .game-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: rgba(244, 228, 193, 0.25);
+        }
+
+        .game-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f4e4c1;
+        }
+
+        .game-link {
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            color: #8b4513;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .game-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+            text-decoration: none;
+            color: #8b4513;
+        }
+
+        /* Additional Services */
+        .additional-services {
+            background: rgba(93, 47, 15, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            margin: 50px 0;
+        }
+
+        .additional-services h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .additional-item {
+            background: rgba(244, 228, 193, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .additional-item:hover {
+            transform: translateY(-5px);
+            background: rgba(244, 228, 193, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .additional-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px auto;
+            color: #8b4513;
+        }
+
+        .additional-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f4e4c1;
+            margin-bottom: 15px;
+        }
+
+        .additional-item p {
+            color: #d4a574;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .additional-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* Scroll animations */
+        .fade-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation delays */
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.2s; }
+        .service-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .additional-item:nth-child(1) { transition-delay: 0.1s; }
+        .additional-item:nth-child(2) { transition-delay: 0.2s; }
+        .additional-item:nth-child(3) { transition-delay: 0.3s; }
+        .additional-item:nth-child(4) { transition-delay: 0.4s; }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-details {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth animations */
+        * {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Loading animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card, .specialties-section, .portfolio-section, .games-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Professional Animation Services</h1>
+            <p class="subtitle">High-Quality Roblox Animations & Custom Content</p>
+        </div>
+
+        <div class="intro-section fade-element">
+            <h2>Welcome to LiLP Studios</h2>
+            <p>Bringing your Roblox projects to life with professional animation services</p>
+            <div class="intro-details">
+                <div class="intro-detail">2+ Years Experience</div>
+                <div class="intro-detail">Roblox Animation Specialist</div>
+                <div class="intro-detail">R6 & R15 Compatible</div>
+                <div class="intro-detail">Professional Quality</div>
+            </div>
+        </div>
+
+        <div class="portfolio-showcase fade-element">
+            <h3>Featured Work</h3>
+            <div class="main-image-placeholder">
+                <div class="image-container">
+                    <div class="image-slide active">
+                        <!-- Add your first image here -->
+                        <img src="images/cutscene3.jpeg" alt="Animation showcase 1">
+                        <div class="shuffle-info">Auto-shuffle: 5s</div>
+                    </div>
+                    <div class="image-slide">
+                        <!-- Add your second image here -->
+                        <img src="images/action2.jpeg" alt="Animation showcase 2">
+                        <div class="shuffle-info">Auto-shuffle: 5s</div>
+                    </div>
+                    <div class="image-slide">
+                        <!-- Add your third image here -->
+                        <img src="images/idle3.jpeg" alt="Animation showcase 1">
+                        <div class="shuffle-info">Auto-shuffle: 5s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card fade-element">
+                <h3 class="service-title">Idle Animations</h3>
+                <div class="price-range">$3 - R15 Compatible</div>
+                <div class="duration">Delivery: 10-30 Minutes</div>
+                <div class="duration">Perfect for character states and ambient movement</div>
+                <div class="service-image-placeholder">
+                    <div class="image-container">
+                        <div class="image-slide active">
+                            <!-- Add your first idle animation image here -->
+                            <img src="images/idle1.jpeg" alt="Animation showcase 1">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                        <div class="image-slide">
+                            <!-- Add your second idle animation image here -->
+                            <img src="images/idle2.jpeg" alt="Animation showcase 2">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                        <div class="image-slide">
+                            <!-- Add your third idle animation image here -->
+                             <img src="images/idle3.jpeg" alt="Animation showcase 3">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card fade-element">
+                <h3 class="service-title">Action Sequences</h3>
+                <div class="price-range">$5 - $15</div>
+                <div class="duration">Delivery: 2 Hours - 5 Days</div>
+                <div class="duration">R6 Optimized • Combat & Movement</div>
+                <div class="service-image-placeholder">
+                    <div class="image-container">
+                        <div class="image-slide active">
+                            <!-- Add your first action sequence image here -->
+                              <img src="images/action1.jpeg" alt="Animation showcase 1">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                        <div class="image-slide">
+                            <!-- Add your second action sequence image here -->
+                            <img src="images/action2.jpeg" alt="Animation showcase 2">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card fade-element">
+                <h3 class="service-title">Cutscenes</h3>
+                <div class="price-range">$20 - $50</div>
+                <div class="duration">Delivery: 1-3 Weeks</div>
+                <div class="duration">R6 Only • Cinematic Quality</div>
+                <div class="service-image-placeholder">
+                    <div class="image-container">
+                        <div class="image-slide active">
+                            <!-- Add your first cutscene image here -->
+                           <img src="images/cutscene1.jpeg" alt="Animation showcase 1">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                        <div class="image-slide">
+                            <!-- Add your second cutscene image here -->
+                           <img src="images/cutscene2.jpeg" alt="Animation showcase 1">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                        <div class="image-slide">
+                            <!-- Add your third cutscene image here -->
+                            <img src="images/cutscene3.jpeg" alt="Animation showcase 1">
+                            <div class="shuffle-info">Auto-shuffle: 5s</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="specialties-section fade-element">
+            <h3 class="specialties-title">Core Specializations</h3>
+            <div class="specialties-grid">
+                <div class="specialty-item">
+                    <div class="specialty-icon">😊</div>
+                    <div>Facial Animation & Expression Systems</div>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">✨</div>
+                    <div>Advanced VFX Integration</div>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">💥</div>
+                    <div>Dynamic Impact Frame Design</div>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">🔧</div>
+                    <div>Custom Animatable Rig Creation</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rendering-section fade-element">
+            <h3>Professional Rendering</h3>
+            <div class="rendering-price">$5 - $10</div>
+            <div class="duration">High-quality rendered output • 1-3 day turnaround</div>
+        </div>
+
+        <div class="additional-services fade-element">
+            <h3>Additional Services</h3>
+            <div class="additional-grid">
+                <div class="additional-item fade-element">
+                    <div class="additional-icon">🎬</div>
+                    <h4>Custom Emotes</h4>
+                    <p>Personalized emote animations for your Roblox game characters</p>
+                    <div class="additional-price">$8 - $25</div>
+                </div>
+                <div class="additional-item fade-element">
+                    <div class="additional-icon">⚔️</div>
+                    <h4>Combat Systems</h4>
+                    <p>Complete fighting animation sets with combo sequences</p>
+                    <div class="additional-price">$30 - $80</div>
+                </div>
+                <div class="additional-item fade-element">
+                    <div class="additional-icon">🏃</div>
+                    <h4>Movement Sets</h4>
+                    <p>Walking, running, jumping, and climbing animation packages</p>
+                    <div class="additional-price">$20 - $50</div>
+                </div>
+                <div class="additional-item fade-element">
+                    <div class="additional-icon">✨</div>
+                    <h4>VFX Integration</h4>
+                    <p>Add stunning visual effects to existing animations</p>
+                    <div class="additional-price">$15 - $40</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-section fade-element">
+            <h3>View Portfolio</h3>
+            <div class="portfolio-links">
+                <a href="#" class="portfolio-link-item">
+                    <span>LinkTree</span>
+                    <div class="link-icon">🔗</div>
+                </a>
+                <a href="#" class="portfolio-link-item">
+                    <span>TikTok Showcase</span>
+                    <div class="link-icon">📱</div>
+                </a>
+                <a href="#" class="portfolio-link-item">
+                    <span>YouTube Channel</span>
+                    <div class="link-icon">📺</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="games-section fade-element">
+            <h3>Featured Projects</h3>
+            <div class="games-grid">
+             
+                <div class="game-item">
+                    <span class="game-name">OCCIDERE [ Upcoming ]</span>
+                    <a href="#" class="game-link">View Project</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Enhanced scroll-triggered fade animations
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-element');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // Remove visible class when scrolling away for fade out effect
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach((element) => {
+                observer.observe(element);
+            });
+        }
+
+        // Image shuffle functionality
+        function initImageShuffle() {
+            const imageContainers = document.querySelectorAll('.image-container');
+            
+            imageContainers.forEach(container => {
+                const slides = container.querySelectorAll('.image-slide');
+                let currentSlide = 0;
+                
+                // Function to show next slide
+                function showNextSlide() {
+                    // Hide current slide
+                    slides[currentSlide].classList.remove('active');
+                    
+                    // Move to next slide
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    // Show next slide
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                // Start the shuffle with 5 second intervals
+                setInterval(showNextSlide, 5000);
+            });
+        }
+
+        // Enhanced hover effects
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            initImageShuffle();
+            
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Smooth scrolling for better UX
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Staggered animation for grid items
+            document.querySelectorAll('.additional-grid .additional-item').forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+
+<!-- Floating Watermark HTML -->
+<a class="floating-watermark" href="https://cosinerad.github.io/cosineradport/" target="_blank" rel="noopener">
+    <div class="watermark-content">
+        <img class="watermark-icon" src="images/outline.PNG" alt="Logo" />
+        <span>website built by cosinerad</span>
+    </div>
+</a>
+
+<style>
+
+.floating-watermark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.floating-watermark:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.watermark-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+}
+
+.watermark-icon {
+    width: 36px;
+    height: 36px;
+    background: black;
+    color: white;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+@media (max-width: 768px) {
+    .floating-watermark {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+    }
+    
+    .watermark-content {
+        font-size: 12px;
+    }
+    
+    .watermark-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+}
+</style>
+
+</html>
