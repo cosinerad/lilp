@@ -111,30 +111,107 @@
             margin-bottom: 25px;
         }
 
-        .main-image-placeholder {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            background: rgba(93, 47, 15, 0.5);
-            border: 3px dashed #d4a574;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            color: #d4a574;
-            font-weight: 500;
+        .video-container {
             position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            background: rgba(93, 47, 15, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #d4a574;
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+            border-color: #f4e4c1;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .video-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            border-radius: 12px;
             overflow: hidden;
         }
 
-        .main-image-placeholder:hover {
-            border-color: #f4e4c1;
-            background: rgba(93, 47, 15, 0.7);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        .video-slide.active {
+            opacity: 1;
+        }
+
+        .video-slide iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .shuffle-controls {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .shuffle-button {
+            background: linear-gradient(135deg, #d4a574, #f4e4c1);
+            color: #8b4513;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .shuffle-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        .video-indicators {
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(212, 165, 116, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #d4a574;
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: #f4e4c1;
+        }
+
+        .video-info {
+            background: rgba(0, 0, 0, 0.7);
+            color: #f4e4c1;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
         }
 
         /* Services grid */
@@ -550,7 +627,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-
         /* Scroll animations */
         .fade-element {
             opacity: 0;
@@ -573,7 +649,6 @@
         .additional-item:nth-child(3) { transition-delay: 0.3s; }
         .additional-item:nth-child(4) { transition-delay: 0.4s; }
 
-       
         @media (max-width: 768px) {
             .container {
                 margin: 10px;
@@ -592,14 +667,21 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .video-container {
+                height: 250px;
+            }
+
+            .shuffle-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
-  
         * {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-    
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -640,20 +722,15 @@
 
         <div class="portfolio-showcase fade-element">
             <h3>Featured Work</h3>
-            <div class="main-image-placeholder">
-                <div class="image-container">
-                    <div class="image-slide active">
-                        <img src="images/cutscene3.jpeg" alt="Animation showcase 1">
-                        <div class="shuffle-info">Preview: 5s</div>
-                    </div>
-                    <div class="image-slide">
-                        <img src="images/action2.jpeg" alt="Animation showcase 2">
-                        <div class="shuffle-info">Preview: 5s</div>
-                    </div>
-                    <div class="image-slide">
-                        <img src="images/idle3.jpeg" alt="Animation showcase 1">
-                        <div class="shuffle-info">Preview: 5s</div>
-                    </div>
+            <div class="video-container">
+                <div class="video-slide active">
+                    <div class="video-info">Zenox Beatdown</div>
+                    <iframe src="https://www.youtube.com/embed/ZRyO5TWhmUQ?si=n_8pRqD7osXug8xK"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -667,18 +744,15 @@
                 <div class="service-image-placeholder">
                     <div class="image-container">
                         <div class="image-slide active">
-                        
                             <img src="images/idle1.jpeg" alt="Animation showcase 1">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
                         <div class="image-slide">
-                            
                             <img src="images/idle2.jpeg" alt="Animation showcase 2">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
                         <div class="image-slide">
-                         
-                             <img src="images/idle3.jpeg" alt="Animation showcase 3">
+                            <img src="images/idle3.jpeg" alt="Animation showcase 3">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
                     </div>
@@ -693,12 +767,10 @@
                 <div class="service-image-placeholder">
                     <div class="image-container">
                         <div class="image-slide active">
-                 
-                              <img src="images/action1.jpeg" alt="Animation showcase 1">
+                            <img src="images/action1.jpeg" alt="Animation showcase 1">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
                         <div class="image-slide">
-          
                             <img src="images/action2.jpeg" alt="Animation showcase 2">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
@@ -714,17 +786,14 @@
                 <div class="service-image-placeholder">
                     <div class="image-container">
                         <div class="image-slide active">
-                           
-                           <img src="images/cutscene1.jpeg" alt="Animation showcase 1">
+                            <img src="images/cutscene1.jpeg" alt="Animation showcase 1">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
                         <div class="image-slide">
-                           
-                           <img src="images/cutscene2.jpeg" alt="Animation showcase 1">
+                            <img src="images/cutscene2.jpeg" alt="Animation showcase 1">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
                         <div class="image-slide">
-                           
                             <img src="images/cutscene3.jpeg" alt="Animation showcase 1">
                             <div class="shuffle-info">Preview: 5s</div>
                         </div>
@@ -792,7 +861,7 @@
         </div>
 
         <div class="portfolio-section fade-element">
-            <h3>Links (currently empty) & Portofolio</h3>
+            <h3>Links (currently empty) & Portfolio</h3>
             <div class="portfolio-links">
                 <a href="#" class="portfolio-link-item">
                     <span>LinkTree</span>
@@ -812,7 +881,6 @@
         <div class="games-section fade-element">
             <h3>Featured Projects</h3>
             <div class="games-grid">
-             
                 <div class="game-item">
                     <span class="game-name">OCCIDERE [ Upcoming ]</span>
                     <a href="#" class="game-link">View Project</a>
@@ -823,7 +891,6 @@
     </div>
 
     <script>
-   
         function initScrollAnimations() {
             const fadeElements = document.querySelectorAll('.fade-element');
             
@@ -837,7 +904,6 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     } else {
-                        // Remove visible class when scrolling away for fade out effect
                         entry.target.classList.remove('visible');
                     }
                 });
@@ -848,7 +914,7 @@
             });
         }
 
-        // Image shuffle functionality
+        // Image shuffle functionality for service cards
         function initImageShuffle() {
             const imageContainers = document.querySelectorAll('.image-container');
             
@@ -857,21 +923,15 @@
                 let currentSlide = 0;
              
                 function showNextSlide() {
-              slides[currentSlide].classList.remove('active');
-                    
-                   
+                    slides[currentSlide].classList.remove('active');
                     currentSlide = (currentSlide + 1) % slides.length;
-                    
-               
                     slides[currentSlide].classList.add('active');
                 }
                 
-      
                 setInterval(showNextSlide, 5000);
             });
         }
 
-        // Enhanced hover effects
         document.addEventListener('DOMContentLoaded', () => {
             initScrollAnimations();
             initImageShuffle();
@@ -886,7 +946,6 @@
                 });
             });
 
-            // Smooth scrolling for better UX
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -900,7 +959,6 @@
                 });
             });
 
-            // Staggered animation for grid items
             document.querySelectorAll('.additional-grid .additional-item').forEach((item, index) => {
                 item.style.transitionDelay = `${index * 0.1}s`;
             });
@@ -917,7 +975,6 @@
 </a>
 
 <style>
-
 .floating-watermark {
     position: fixed;
     bottom: 20px;
